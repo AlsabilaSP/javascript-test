@@ -1,0 +1,65 @@
+main {
+  position: relative;
+  padding: 1rem;
+  height: calc(100vh - 3rem);
+}
+
+.main-table {
+    overflow-y: auto;
+}
+
+.pagination-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  padding: 1rem 0;
+  justify-content: center;
+}
+
+.pagination-number,
+.pagination-button{
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: none;
+  margin: 0.25rem 0.25rem;
+  cursor: pointer;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: .2rem;
+
+  &.active {
+    color: #fff;
+    background: #0085b6;
+  }
+}
+
+.card {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+
+    &:hover {
+        border-width: 2px;
+    }
+}
+
+.card-header {
+    margin-bottom: 5px;
+    font-style: italic;
+}
+
+.card-body {
+    margin-bottom: 10px;
+}
+
+.table-warning {
+    .card {
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        background: #e6f3f8;
+    }
+}

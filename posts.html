@@ -6,9 +6,42 @@
     <title>JavaScript Test</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="src/style/table.css">
 </head>
 <body>
+    <main class="flex flex-col">
+        <div class="px-3 pb-4">
+            <input type="text" id="searchInput" 
+                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                placeholder="Search posts (title and body)...">
+        </div>
+
+        <div class="main-table flex-1">
+            <table class="w-full" id="paginated-table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Posts</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <nav class="pagination-container">
+          <button class="pagination-button" id="prev-button">
+            &lt;
+          </button>
+          <div class="flex overflow-auto" id="pagination-numbers">
+          </div>
+          <button class="pagination-button" id="next-button">
+            &gt;
+          </button>
+        </nav>
+    </main>
+
     <script src="src/js/core/navbar.js"></script>
-    <script src="src/js/pages/main.js"></script>
+    <script type="module" src="src/js/pages/main.js"></script>
 </body>
 </html>
