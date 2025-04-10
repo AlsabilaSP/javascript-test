@@ -136,3 +136,13 @@ const renderPagination = () => {
       console.error("Error loading posts:", err);
     }
 })();
+
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", () => {
+  const term = searchInput.value.toLowerCase();
+  const filtered = postsData.filter(post =>
+    post.title.toLowerCase().includes(term) ||
+    post.body.toLowerCase().includes(term)
+  );
+  renderPosts(filtered);
+});
