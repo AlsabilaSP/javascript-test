@@ -1,0 +1,30 @@
+.main-table {
+    overflow-y: auto;
+}
+
+.table-component {
+    table {
+        border: 1px solid #dededf;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    caption {
+        caption-side: top;
+        text-align: left;
+    }
+
+    th {
+        border: 1px solid #dededf;
+        text-align: center;
+        background-color: #eceff1;
+        color: #000000;
+    }
+
+    td {
+        border: 1px solid #dededf;
+        background-color: #ffffff;
+        color: #000000;
+    }
+    
+}

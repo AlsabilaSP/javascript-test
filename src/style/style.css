@@ -1,0 +1,17 @@
+main {
+    position: relative;
+    padding: 1rem;
+    height: calc(100vh - 6rem);
+}
+
+h1 {
+    font-size: x-large;
+    font-weight: bold;
+    padding: 1rem 2rem 0;
+}
+
+h2 {
+    font-size: large;
+    font-weight: bold;
+    padding: 1rem 0 2rem;
+}

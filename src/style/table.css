@@ -1,9 +1,3 @@
-main {
-  position: relative;
-  padding: 1rem;
-  height: calc(100vh - 3rem);
-}
-
 .main-table {
     overflow-y: auto;
 }

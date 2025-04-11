@@ -5,10 +5,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>JavaScript Test</title>
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <link rel="stylesheet" href="src/style/style.css">
+        <link rel="stylesheet" href="src/style/report.css">
     </head>
-<body>
-    <script src="src/js/core/navbar.js"></script>
-    <script src="src/js/pages/reports.js"></script>
-</body>
+    <body>
+        <h1>Reports</h1>
+        <main class="grid lg:grid-cols-2 w-full h-full">
+            <div class="pie-chart px-3 pb-4 grid w-full">
+                <h2 class="pb-2 lg:pb-0">Total "rerum" Word</h2>
+                <canvas id="rerumChart" 
+                    style="max-height: 500px; max-width: 500px; margin-inline: auto;"
+                ></canvas>
+            </div>
+    
+            <div class="table-component flex flex-col px-3 gap-3 w-full lg:w-fit">
+                <h2>Total Post per User</h2>
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th style="padding-inline: 1rem;">User ID</th>
+                            <th style="padding-inline: 1rem;">Post Count</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    
+        <script src="src/js/core/navbar.js"></script>
+        <script type="module" src="src/js/pages/reports.js"></script>
+    </body>
 </html>
