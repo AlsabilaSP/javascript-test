@@ -5,11 +5,12 @@ let postsData = [];
 const paginationNumbers = document.getElementById("pagination-numbers");
 const nextButton = document.getElementById("next-button");
 const prevButton = document.getElementById("prev-button");
+const searchInput = document.getElementById("searchInput");
 const paginationLimit = 10;
 let currentPage = 1;
 let pageCount;
 
-function renderPosts(posts) {
+export const renderPosts = (posts) => {
     tableBody.innerHTML = "";
   
     if (posts.length > 0) {
@@ -40,7 +41,7 @@ function renderPosts(posts) {
     renderHighlight();
 }
 
-const renderTableRow = (post, innerHtml) => {
+export const renderTableRow = (post, innerHtml) => {
   const row = document.createElement("tr");
   row.classList.add("table-body-row");
 
@@ -52,19 +53,19 @@ const renderTableRow = (post, innerHtml) => {
   tableBody.appendChild(row);
 }
 
-const renderHighlight = () => {
+export const renderHighlight = () => {
     const regex = new RegExp(`rerum`, 'gi'); // Match whole word, case-insensitive
     Array.from(tableBody.children).forEach(listItem => {
         listItem.innerHTML = listItem.innerHTML.replace(regex, `<strong>rerum</strong>`);
     });
 }
   
-const handlePageButtonsStatus = () => {
+export const handlePageButtonsStatus = () => {
     prevButton.setAttribute("disabled", currentPage === true);
     nextButton.setAttribute("disabled", currentPage === pageCount);
 };
   
-const handleActivePageNumber = () => {
+export const handleActivePageNumber = () => {
     document.querySelectorAll(".pagination-number").forEach((button) => {
       button.classList.remove("active");
       const pageIndex = Number(button.getAttribute("page-index"));
@@ -74,7 +75,7 @@ const handleActivePageNumber = () => {
     });
 };
   
-const getPaginationNumbers = () => {
+export const getPaginationNumbers = () => {
     for (let i = 1; i <= pageCount; i++) {
       const pageNumber = document.createElement("button");
       pageNumber.className = "pagination-number";
@@ -84,7 +85,7 @@ const getPaginationNumbers = () => {
     }
 };
   
-const setCurrentPage = (pageNum, tableItems) => {
+export const setCurrentPage = (pageNum, tableItems) => {
     currentPage = pageNum;
     handleActivePageNumber();
     handlePageButtonsStatus();
@@ -99,7 +100,7 @@ const setCurrentPage = (pageNum, tableItems) => {
     });
 };
 
-const renderPagination = () => {
+export const renderPagination = () => {
     const paginatedTable = document.getElementById("paginated-table");
     const tableItems = paginatedTable.querySelectorAll(".table-body-row");
     
@@ -128,21 +129,27 @@ const renderPagination = () => {
     });
   }
 
-(async () => {
-    try {
-      postsData = await getPosts();
-      renderPosts(postsData);
-    } catch (err) {
-      console.error("Error loading posts:", err);
-    }
-})();
+export const renderSearch = (postsData) => {
+    searchInput.addEventListener("input", () => {
+      const term = searchInput.value.toLowerCase();
+      const filtered = postsData.filter(post =>
+        post.title.toLowerCase().includes(term) ||
+        post.body.toLowerCase().includes(term)
+      );
+      renderPosts(filtered);
+    });
+};
 
-const searchInput = document.getElementById("searchInput");
-searchInput.addEventListener("input", () => {
-  const term = searchInput.value.toLowerCase();
-  const filtered = postsData.filter(post =>
-    post.title.toLowerCase().includes(term) ||
-    post.body.toLowerCase().includes(term)
-  );
-  renderPosts(filtered);
-});
+export const main = async () => {
+  try {
+    postsData = await getPosts();
+    renderPosts(postsData);
+    renderSearch(postsData);
+  } catch (err) {
+    console.error("Error loading posts:", err);
+  }
+};
+
+if (!window.location.href.includes("test")) {
+  main();
+}

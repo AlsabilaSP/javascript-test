@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Page</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="src/style/style.css">
     <link rel="stylesheet" href="src/style/table.css">
+    <title>JavaScript Testing</title>
 </head>
 <body>
-    <h1>Post List</h1>
-    <main class="flex flex-col">
+    <h1>Basic Testing</h1>
+    <main class="flex flex-col" style="padding: 2rem;" id="test-results">
+    </main>
+    
+    <div style="display: none;">
         <div class="px-3 pb-4">
             <input type="text" id="searchInput" 
                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
@@ -21,7 +24,7 @@
             <table class="w-full" id="paginated-table">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th style="width: 50px;">No</th>
                         <th>Posts</th>
                     </tr>
                 </thead>
@@ -40,9 +43,9 @@
             &gt;
           </button>
         </nav>
-    </main>
+    </div>
 
     <script src="src/js/core/navbar.js"></script>
-    <script type="module" src="src/js/pages/main.js"></script>
+    <script type="module" src="src/js/tests/main_test.js"></script>
 </body>
 </html>
