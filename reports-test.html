@@ -10,31 +10,27 @@
         <link rel="stylesheet" href="src/style/report.css">
     </head>
     <body>
-        <h1>Reports</h1>
-        <main class="grid lg:grid-cols-2 w-full h-full">
+        <h1>Reports Testing</h1>
+        <main class="flex flex-col" style="padding: 2rem;" id="test-results">
+
+        </main>
+
+        <div style="display: none;">
             <div class="pie-chart px-3 pb-4 grid w-full">
-                <h2 class="pb-2 lg:pb-0">Total "rerum" Word in Body</h2>
                 <canvas id="rerumChart" 
                     style="max-height: 500px; max-width: 500px; margin-inline: auto;"
                 ></canvas>
             </div>
     
             <div class="table-component flex flex-col px-3 gap-3 w-full lg:w-fit">
-                <h2>Total Post per User</h2>
                 <table class="w-full">
-                    <thead>
-                        <tr>
-                            <th style="padding-inline: 1rem;">User ID</th>
-                            <th style="padding-inline: 1rem;">Post Count</th>
-                        </tr>
-                    </thead>
                     <tbody id="table-body">
                     </tbody>
                 </table>
             </div>
-        </main>
+        </div>
     
         <script src="src/js/core/navbar.js"></script>
-        <script type="module" src="src/js/pages/reports.js"></script>
+        <script type="module" src="src/js/tests/reports_test.js"></script>
     </body>
 </html>
